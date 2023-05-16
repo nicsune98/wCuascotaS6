@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wCuascotaS6.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <Frame BackgroundColor="#0048BD" Padding="17" CornerRadius="0">
+            <Label Text="Consumir web service GET" HorizontalTextAlignment="Center" TextColor="White" FontSize="16"/>
+        </Frame>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="ID" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" TextColor="#2196F3"/>
+            <Label Text="Nombre" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" TextColor="#2196F3"/>
+            <Label Text="Apellido" FontSize="16" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" TextColor="#2196F3"/>
+            <Label Text="Edad" FontSize="16" Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" TextColor="#2196F3"/>
+        </Grid>
+        <ListView x:Name="Lista">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem x:Name="BtEditar" Text="Editar" IsDestructive="False" Clicked="BtEditar_Clicked" CommandParameter="{Binding codigo}"/>
+                            <MenuItem x:Name="BtEliminar" Text="Eliminar" IsDestructive="True" Clicked="BtEliminar_Clicked" CommandParameter="{Binding codigo}"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblID" Text="{Binding codigo}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"/>
+                                <Label x:Name="lblNombre" Text="{Binding nombre}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                                <Label x:Name="lblApellido" Text="{Binding apellido}" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center"/>
+                                <Label x:Name="lblEdad" Text="{Binding edad}" Grid.Row="0" Grid.Column="3" HorizontalOptions="Center"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btRegistro" Text="REGISTRO" Clicked="btRegistro_Clicked" BackgroundColor="#2196F3" TextColor="White"/>
+    </StackLayout>
+
+</ContentPage>
